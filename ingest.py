@@ -127,7 +127,7 @@ def build_vectorstore() -> FAISS:
     # This model is cheap, fast, and well-suited for retrieval tasks
     embeddings = OpenAIEmbeddings(
         model="text-embedding-3-small",
-        openai_api_key=os.environ["OPENAI_API_KEY"],
+        openai_api_key=os.getenv("OPENAI_API_KEY"),
     )
 
     print("[ingest] Embedding chunks (this may take a moment)…")
@@ -160,7 +160,7 @@ def load_vectorstore() -> FAISS:
     print("[ingest] Loading existing FAISS index from disk…")
     embeddings = OpenAIEmbeddings(
         model="text-embedding-3-small",
-        openai_api_key=os.environ["OPENAI_API_KEY"],
+        openai_api_key=os.getenv("OPENAI_API_KEY"),
     )
     return FAISS.load_local(
         str(VECTORSTORE_DIR),

@@ -30,7 +30,10 @@ for command-line testing.
 
 from typing import Any, TypedDict
 
+from dotenv import load_dotenv
 from langgraph.graph import END, StateGraph
+
+load_dotenv()
 
 from agents import (
     aggregator_agent,

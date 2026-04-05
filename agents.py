@@ -34,7 +34,7 @@ load_dotenv()
 _LLM = ChatOpenAI(
     model="gpt-4o-mini",
     temperature=0,
-    openai_api_key=os.environ["OPENAI_API_KEY"],
+    openai_api_key=os.getenv("OPENAI_API_KEY"),
 )
 
 # Vectorstore is loaded once and reused by every agent that needs it
